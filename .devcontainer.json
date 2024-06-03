@@ -1,0 +1,55 @@
+{
+    "name": "example-module",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers-contrib/features/pdm:2": {},
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "20.11.1"
+        }
+    },
+    "postCreateCommand": "pdm run pre-commit install --install-hooks && echo '\n📢📢 Call `pdm run all` to run all checks and tests, or use the provided test task from the VSCode command palette 📢📢'",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "aaron-bond.better-comments",
+                "SonarSource.sonarlint-vscode",
+                "yzhang.markdown-all-in-one",
+                "streetsidesoftware.code-spell-checker",
+                "tamasfe.even-better-toml",
+                "charliermarsh.ruff",
+                "ms-azure-devops.azure-pipelines",
+                "esbenp.prettier-vscode",
+                "ms-python.mypy-type-checker"
+            ],
+            "settings": {
+                "python.analysis.typeCheckingMode": "basic",
+                "python.analysis.autoImportCompletions": true,
+                "python.languageServer": "Pylance",
+                "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+                "python.testing.pytestEnabled": true,
+                "python.testing.unittestEnabled": false,
+                "python.testing.pytestArgs": [
+                    "tests"
+                ],
+                "[python]": {
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll": "explicit",
+                        "source.organizeImports": "explicit"
+                    },
+                    "editor.defaultFormatter": "charliermarsh.ruff"
+                },
+                "sonarlint.pathToNodeExecutable": "/usr/local/share/nvm/versions/node/v20.11.1/bin/node",
+                "cSpell.ignorePaths": [
+                    "pdm.lock"
+                ],
+                "mypy-type-checker.preferDaemon": true,
+                "mypy-type-checker.reportingScope": "workspace"
+            }
+        }
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/example-module,type=bind",
+    "workspaceFolder": "/workspaces/example-module"
+}
