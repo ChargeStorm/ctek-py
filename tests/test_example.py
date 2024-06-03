@@ -1,7 +1,7 @@
-from example_module import main
+from ctek.nanogrid_air import NanogridAir
 
 
-def test_main(capsys):
-    main()
+def test_nanogrid_air_print(capsys):
+    NanogridAir().print()
     captured = capsys.readouterr()
-    assert captured.out == "Hello from example module!\n"
+    assert captured.out == "Hello from NANOGRID™ AIR\n"

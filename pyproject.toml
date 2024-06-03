@@ -1,19 +1,14 @@
-
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [project]
-name = "example-module"
-description = ""
-authors = [{ name = "Carl Westman", email = "carl.westman91@gmail.com" }]
+name = "ctek"
+description = "Python library to interact with multiple CTEK products through their open API:s"
+authors = [{ name = "Carl Westman", email = "carl.westman@ctek.com" }]
 readme = "README.md"
-requires-python = ">=3.8"
-# dependencies = ["package1", "package2"]
+requires-python = ">=3.10"
 dynamic = ["version"]
-
-[project.scripts]
-example-module = "example_module:main"
 
 [project.urls]
 Repository = "https://github.com/Wesztman/get-py-deps"
@@ -27,7 +22,7 @@ test = [
     "pytest-mock~=3.14.0",
     "pytest-sugar~=1.0.0",
 ]
-dev = ["pre-commit~=3.5.0", "example-module[lint]", "example-module[test]"]
+dev = ["pre-commit~=3.5.0", "ctek[lint]", "ctek[test]"]
 
 [tool.pdm.version]
 source = "scm"

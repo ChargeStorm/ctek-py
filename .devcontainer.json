@@ -1,5 +1,5 @@
 {
-    "name": "example-module",
+    "name": "ctek-py",
     "image": "mcr.microsoft.com/devcontainers/python:3.12",
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
@@ -21,7 +21,8 @@
                 "charliermarsh.ruff",
                 "ms-azure-devops.azure-pipelines",
                 "esbenp.prettier-vscode",
-                "ms-python.mypy-type-checker"
+                "ms-python.mypy-type-checker",
+                "github.vscode-github-actions"
             ],
             "settings": {
                 "python.analysis.typeCheckingMode": "basic",
