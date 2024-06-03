@@ -47,7 +47,7 @@ pre_run = { composite = [
 # Test
 test = { composite = [
     "_add-title 'Running Pytest'",
-    "pytest {args:tests/ --cov src/example_module --cov-report term --cov-report html}",
+    "pytest {args:tests/ --cov src/ctek --cov-report term --cov-report html}",
 ], help = "Run pytest with coverage report" }
 # Linting
 _precommit = { shell = "pre-commit run --all-files" } # incl. ruff lint, ruff format, and lock file check
