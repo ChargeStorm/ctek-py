@@ -1,3 +1,3 @@
 class NanogridAir:
-    def print(self):
+    def print(self) -> None:
         print("Hello from NANOGRID™ AIR")
