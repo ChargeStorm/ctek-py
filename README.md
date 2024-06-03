@@ -1,7 +1,7 @@
 # ctek-py
 ![Under Development](https://img.shields.io/badge/Under%20Development%20-fc2803)
 
-<!-- Pypi badge -->
+[![PyPI Version](https://img.shields.io/pypi/v/ctek.svg)](https://pypi.python.org/pypi/ctek)
 [![Test and publish workflow](https://github.com/ChargeStorm/ctek-py/actions/workflows/test-and-publish.yml/badge.svg)](https://github.com/ChargeStorm/ctek-py/actions/workflows/test-and-publish.yml)
 ![Python Versions](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue
 )
