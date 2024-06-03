@@ -1,19 +1,37 @@
 <!-- Build badge -->
 <!-- Pypi badge -->
+![Under Development](https://img.shields.io/badge/Under%20Development%20-fc2803)
+
 ![Python Versions](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue
 )
 ![Tested on OS](https://img.shields.io/badge/OS-Win%20%7C%20Linux%20%7C%20Mac-orange
 )
 [![Tested on OS](https://img.shields.io/badge/Package/Dependency%20Manager-PDM-purple)](https://pdm-project.org/en/latest/)
 
-
-*A template project for a pyproject/PDM based Python application.*
-
 # About
+This library provides a set of friendly classes and functions to interact with CTEK products through Python. 
+
+## Currently supported devices
+
+### NANOGRID™ AIR - ✅
 
 # Installation
+Simply install using pip
+
+```bash
+pip install ctek
+```
 
 # Usage
+Products can be interacted with through classes of the same name as the product
+
+```python
+from ctek import NanogridAir
+
+nanogrid_air = NanogridAir()
+
+status = nanogrid_air.get_status()
+```
 
 # Build and Test
 
