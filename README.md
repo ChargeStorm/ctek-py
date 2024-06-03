@@ -1,8 +1,9 @@
 <!-- Build badge -->
 <!-- Pypi badge -->
-![Python Versions](https://img.shields.io/badge/Python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue
+![Python Versions](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue
 )
-![Tested on OS](https://img.shields.io/badge/OS-linux-orange)
+![Tested on OS](https://img.shields.io/badge/OS-Win%20%7C%20Linux%20%7C%20Mac-orange
+)
 [![Tested on OS](https://img.shields.io/badge/Package/Dependency%20Manager-PDM-purple)](https://pdm-project.org/en/latest/)
 
 
