@@ -1,4 +1,5 @@
-<!-- Build badge -->
+# ctek-py
+[![Test and publish workflow](https://github.com/ChargeStorm/ctek-py/actions/workflows/test-and-publish.yml/badge.svg)](https://github.com/ChargeStorm/ctek-py/actions/workflows/test-and-publish.yml)
 <!-- Pypi badge -->
 ![Under Development](https://img.shields.io/badge/Under%20Development%20-fc2803)
 
