@@ -10,7 +10,7 @@
 [![Tested on OS](https://img.shields.io/badge/Package/Dependency%20Manager-PDM-purple)](https://pdm-project.org/en/latest/)
 
 # About
-This library provides a set of friendly classes and functions to interact with CTEK products through Python.
+This library provides a set of friendly classes and functions to interact with CTEK products and their public API:s through Python.
 
 ## Currently supported devices
 
