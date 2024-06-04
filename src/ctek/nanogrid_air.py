@@ -9,9 +9,9 @@ class NanogridAir:
         self._initialized = False
 
     @staticmethod
-    async def get_ip() -> str | None:
+    async def get_ip(hostname="ctek-ng-air.local") -> str | None:
         try:
-            ip = socket.gethostbyname("ctek-ng-air.local")
+            ip = socket.gethostbyname(hostname)
             if ip:
                 return ip
         except socket.gaierror:
