@@ -5,7 +5,7 @@ from ctek.nanogrid_air import NanogridAir
 
 @pytest.mark.asyncio
 async def test_nanogrid_air_print_ip():
-    ip = await NanogridAir.get_ip()
+    ip = await NanogridAir().get_ip()
     print(f"Retrieved IP: {ip}")
 
 

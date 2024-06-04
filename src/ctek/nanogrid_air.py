@@ -8,8 +8,7 @@ class NanogridAir:
         self.device_ip = device_ip
         self._initialized = False
 
-    @staticmethod
-    async def get_ip(hostname="ctek-ng-air.local") -> str | None:
+    async def get_ip(self, hostname="ctek-ng-air.local") -> str | None:
         try:
             ip = socket.gethostbyname(hostname)
             if ip:
