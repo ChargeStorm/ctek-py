@@ -96,4 +96,3 @@ This requires you to have an active NANOGRID™ AIR device connected to the same
 # To Do
 
 - [ ] Add proper documentation with Github Pages
-- [ ] Add proper unit tests
