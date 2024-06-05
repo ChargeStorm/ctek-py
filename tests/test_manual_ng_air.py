@@ -10,6 +10,12 @@ async def test_nanogrid_air_print_ip():
 
 
 @pytest.mark.asyncio
+async def test_nanogrid_air_print_status():
+    status = await NanogridAir().fetch_status()
+    print(f"Status: {status}")
+
+
+@pytest.mark.asyncio
 async def test_nanogrid_air_print_mac():
     mac = await NanogridAir().fetch_mac()
     print(f"MAC address: {mac}")
