@@ -24,8 +24,6 @@ async def test_nanogrid_air_print_mac():
 @pytest.mark.asyncio
 async def test_nanogrid_air_print_meter_data():
     meter_data = await NanogridAir().fetch_meter_data()
-    print(meter_data.active_power_in)
-
     print(f"Meter data: {meter_data}")
 
 
