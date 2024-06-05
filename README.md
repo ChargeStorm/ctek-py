@@ -1,5 +1,4 @@
 # ctek-py
-![Under Development](https://img.shields.io/badge/Under%20Development%20-fc2803)
 
 [![PyPI Version](https://img.shields.io/pypi/v/ctek.svg)](https://pypi.python.org/pypi/ctek)
 [![Test and publish workflow](https://github.com/ChargeStorm/ctek-py/actions/workflows/test-and-publish.yml/badge.svg)](https://github.com/ChargeStorm/ctek-py/actions/workflows/test-and-publish.yml)
@@ -29,9 +28,19 @@ Products can be interacted with through classes of the same name as the product
 ```python
 from ctek import NanogridAir
 
-nanogrid_air = NanogridAir()
+meter_data = await NanogridAir().fetch_meter_data()
 
-status = nanogrid_air.get_status()
+print(f"Meter data: {meter_data}")
+```
+
+Since this library utilizes dataclasses, you can easily access the data returned by the API and see what is available for you to use. For example, to get the active power in:
+
+```python
+from ctek import NanogridAir
+
+meter_data = await NanogridAir().fetch_meter_data()
+
+print(f"Active power in: {meter_data.active_power_in}")
 ```
 
 # Build and Test
@@ -73,3 +82,17 @@ To run testing, linting and building of the project you can run the following co
 ```bash
 pdm run all
 ```
+
+#### Run manual device tests
+
+To run the manual tests for the devices you can run the following command:
+
+```bash
+pytest tests/manual_test_ng_air.py -s
+```
+
+This requires you to have an active NANOGRID™ AIR device connected to the same network as the computer running the tests.
+
+# To Do
+
+- [ ] Add proper documentation with Github Pages

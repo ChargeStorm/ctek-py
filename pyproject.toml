@@ -9,6 +9,9 @@ authors = [{ name = "Carl Westman", email = "carl.westman@ctek.com" }]
 readme = "README.md"
 requires-python = ">=3.10"
 dynamic = ["version"]
+dependencies = [
+    "aiohttp~=3.9.5",
+]
 
 [project.urls]
 Repository = "https://github.com/Wesztman/get-py-deps"
@@ -21,6 +24,7 @@ test = [
     "coverage[toml]~=7.4.4",
     "pytest-mock~=3.14.0",
     "pytest-sugar~=1.0.0",
+    "pytest-asyncio~=0.23.7",
 ]
 dev = ["pre-commit~=3.5.0", "ctek[lint]", "ctek[test]"]
 
