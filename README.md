@@ -33,7 +33,7 @@ meter_data = await NanogridAir().fetch_meter_data()
 print(f"Meter data: {meter_data}")
 ```
 
-Since this library utilizes dataclasses, you can easily access the data returned by the API and see what is available for you to use. For example, to get the active power in:
+Since this library utilizes dataclasses, you can easily access the data returned by the API and see what is available for you to use through auto-completion in your IDE. For example, to get the active power in:
 
 ```python
 from ctek import NanogridAir
