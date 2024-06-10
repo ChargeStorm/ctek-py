@@ -83,12 +83,11 @@ class NanogridAir:
 
     async def get_ip(self, hostname: str = "ctek-ng-air.local") -> str | None:
         try:
-            ip = socket.gethostbyname(hostname)
-            if ip:
-                return ip
-        except socket.gaierror:
-            return None
-        return None
+            return socket.gethostbyname(hostname)
+        except socket.gaierror as e:
+            raise ConnectionError(
+                "Could not resolve hostname '" + hostname + "'"
+            ) from e
 
     async def _initialize(self) -> None:
         if not self._initialized:
