@@ -50,7 +50,5 @@
                 "mypy-type-checker.reportingScope": "workspace"
             }
         }
-    },
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/example-module,type=bind",
-    "workspaceFolder": "/workspaces/example-module"
+    }
 }
