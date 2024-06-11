@@ -95,6 +95,9 @@ class NanogridAir:
                 self.device_ip = await self.get_ip()
             self._initialized = True
 
+    def is_initialized(self) -> bool:
+        return self._initialized
+
     async def _fetch_data(self, endpoint: str) -> dict[str, Any]:
         await self._initialize()
         url = f"http://{self.device_ip}/{endpoint}/"
