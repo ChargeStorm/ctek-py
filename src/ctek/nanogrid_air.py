@@ -80,8 +80,9 @@ class EVSEData:
 class NanogridAir:
     device_ip: str | None = None
     _initialized: bool = False
+    _default_hostname: str = "ctek-ng-air.local"
 
-    async def get_ip(self, hostname: str = "ctek-ng-air.local") -> str | None:
+    async def get_ip(self, hostname: str = _default_hostname) -> str | None:
         try:
             return socket.gethostbyname(hostname)
         except socket.gaierror as e:
@@ -89,17 +90,21 @@ class NanogridAir:
                 "Could not resolve hostname '" + hostname + "'"
             ) from e
 
-    async def _initialize(self) -> None:
+    async def initialize(self, hostname: str = _default_hostname) -> None:
         if not self._initialized:
             if not self.device_ip:
-                self.device_ip = await self.get_ip()
+                self.device_ip = await self.get_ip(hostname)
+            self._initialized = True
+
+    def __post_init__(self):
+        if self.device_ip is not None:
             self._initialized = True
 
     def is_initialized(self) -> bool:
         return self._initialized
 
     async def _fetch_data(self, endpoint: str) -> dict[str, Any]:
-        await self._initialize()
+        await self.initialize()
         url = f"http://{self.device_ip}/{endpoint}/"
         async with aiohttp.ClientSession() as session, session.get(url) as response:
             response.raise_for_status()
