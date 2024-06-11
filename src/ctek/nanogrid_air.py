@@ -97,7 +97,9 @@ class NanogridAir:
 
     async def get_ip(self, hostname: str = _default_hostname) -> str | None:
         try:
-            return socket.gethostbyname(hostname)
+            ip = socket.gethostbyname(hostname)
+            logger.debug(f"Resolved hostname '{hostname}' to IP: {ip}")
+            return ip
         except socket.gaierror as e:
             raise ConnectionError(
                 "Could not resolve hostname '" + hostname + "'"
@@ -109,7 +111,7 @@ class NanogridAir:
                 self.device_ip = await self.get_ip(hostname)
             self._initialized = True
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.device_ip is not None:
             self._initialized = True
 
@@ -119,16 +121,19 @@ class NanogridAir:
     async def _fetch_data(self, endpoint: str) -> dict[str, Any]:
         await self.initialize()
         url = f"http://{self.device_ip}/{endpoint}/"
-        async with aiohttp.ClientSession() as session, session.get(url) as response:
-            response.raise_for_status()
-            data = await response.json()
-            logger.debug(f"Received data from {url}: {data}")
-            if isinstance(data, list):
-                return {str(idx): item for idx, item in enumerate(data)}
-            elif isinstance(data, dict):
-                return data
-            else:
-                raise ValueError("Unexpected data type received")
+        try:
+            async with aiohttp.ClientSession() as session, session.get(url) as response:
+                response.raise_for_status()
+                data = await response.json()
+                logger.debug(f"Received data from {url}: {data}")
+                if isinstance(data, list):
+                    return {str(idx): item for idx, item in enumerate(data)}
+                elif isinstance(data, dict):
+                    return data
+                else:
+                    raise ValueError("Unexpected data type received")
+        except aiohttp.ClientConnectionError as e:
+            raise ConnectionError(f"Could not connect to {url}") from e
 
     async def fetch_status(self) -> DeviceStatus:
         data: dict[str, Any] = await self._fetch_data("status")
