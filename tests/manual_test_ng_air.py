@@ -12,13 +12,7 @@ async def test_nanogrid_air_print_ip():
 @pytest.mark.asyncio
 async def test_nanogrid_air_print_status():
     status = await NanogridAir().fetch_status()
-    print(f"Status: {status}")
-
-
-@pytest.mark.asyncio
-async def test_nanogrid_air_print_mac():
-    mac = await NanogridAir().fetch_mac()
-    print(f"MAC address: {mac}")
+    print(f"Status: {status.device_info.mac}")
 
 
 @pytest.mark.asyncio
@@ -37,3 +31,10 @@ async def test_nanogrid_air_print_meterraw():
 async def test_nanogrid_air_print_evse():
     evse = await NanogridAir().fetch_evse()
     print(f"EVSE data: {evse}")
+
+
+@pytest.mark.asyncio
+async def test_invalid_ip():
+    with pytest.raises(ConnectionError):
+        evse = await NanogridAir(device_ip="1.2.3.4").fetch_evse()
+        print(f"EVSE data: {evse}")
