@@ -1,13 +1,13 @@
 import unittest
 from unittest.mock import patch
 
-from ctek.nanogrid_air import (
+from ctek import NanogridAir
+from ctek.nanogrid_air.types import (
     DeviceStatus,
     EVSEData,
     EVSEInfo,
     MeterData,
     MeterRawData,
-    NanogridAir,
 )
 
 
