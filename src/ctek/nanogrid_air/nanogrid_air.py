@@ -117,8 +117,12 @@ class NanogridAir:
         return MeterData(
             active_power_in=data["activePowerIn"],
             active_power_out=data["activePowerOut"],
-            current=data["current"],
-            voltage=data["voltage"],
+            current_L1=data["current"][0],
+            current_L2=data["current"][1],
+            current_L3=data["current"][2],
+            voltage_L1=data["voltage"][0],
+            voltage_L2=data["voltage"][1],
+            voltage_L3=data["voltage"][2],
             total_energy_active_import=data["totalEnergyActiveImport"],
             total_energy_active_export=data["totalEnergyActiveExport"],
         )

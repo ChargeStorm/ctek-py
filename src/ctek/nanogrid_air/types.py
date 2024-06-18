@@ -55,8 +55,12 @@ class DeviceStatus(BaseDataClass):
 class MeterData(BaseDataClass):
     active_power_in: float
     active_power_out: float
-    current: list[float]
-    voltage: list[float]
+    current_L1: float
+    current_L2: float
+    current_L3: float
+    voltage_L1: float
+    voltage_L2: float
+    voltage_L3: float
     total_energy_active_import: int
     total_energy_active_export: int
 
