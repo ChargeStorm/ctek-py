@@ -1,13 +1,13 @@
 import unittest
 from unittest.mock import patch
 
-from ctek.nanogrid_air import (
+from ctek import NanogridAir
+from ctek.nanogrid_air.types import (
     DeviceStatus,
     EVSEData,
     EVSEInfo,
     MeterData,
     MeterRawData,
-    NanogridAir,
 )
 
 
@@ -92,6 +92,8 @@ class TestNanogridAir(unittest.IsolatedAsyncioTestCase):
 
             self.assertIsInstance(meter_data, MeterData)
             self.assertEqual(meter_data.active_power_in, 0.01)
+            self.assertEqual(meter_data.current_L1, 0.2)
+            self.assertEqual(meter_data.voltage_L3, 227.5)
             self.assertEqual(meter_data.total_energy_active_import, 2853)
 
     async def test_fetch_meter_data_unimplemented_field(self):

@@ -43,6 +43,17 @@ meter_data = await NanogridAir().fetch_meter_data()
 print(f"Active power in: {meter_data.active_power_in}")
 ```
 
+If you need access to the data types used in the library, you can import them from `ctek.<device>.types`. For example, to get the `MeterData` dataclass for the NANOGRID™ AIR device:
+
+```python
+from ctek import NanogridAir
+from ctek.nanogrid_air.types import MeterData
+
+meter_data: Meterdata = await NanogridAir().fetch_meter_data()
+
+print(f"Active power in: {meter_data.active_power_in}")
+```
+
 # Build and Test
 
 The recommended way is to use the provided [Dev Container](https://code.visualstudio.com/docs/remote/containers), which will set up everything for you. This includes installing all the necessary dependencies, installing pre-commit hooks, and setting up the development environment with recommended tools and extensions, as well as environment variables. All source code will be mounted into the container automatically on start and config files such as `.gitconfig` will be inherited. You are up and running in no time. For more info see the dev container configuration file `.devcontainer/devcontainer.json` and the Dev Container documentation.
